@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-content: center;
+  font-size: 2em;
+  padding: 2em;
+  background-color: rgb(30, 31, 33);
+  border-radius: 1em;
+  gap: 3rem;
+  width: 30rem;
+  height: 40rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.heading {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+input {
+  height: 2rem;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  background-color: rgb(33, 33, 33);
+}
+
+button {
+  transition: all 0.02s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: rgb(37, 37, 40);
+}
+
+button:active {
+  transform: scale(1);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reset__button {
+  text-align: center;
+  font-size: 1.5rem;
+}
