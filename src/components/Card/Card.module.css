@@ -9,13 +9,13 @@
   border-radius: 1em;
   gap: 3rem;
   width: 30rem;
-  height: 40rem;
 }
 
 .field {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  width: 85%;
 }
 
 .heading {
@@ -30,6 +30,22 @@ input {
   border-radius: 0.5rem;
   padding: 0.2rem;
   background-color: rgb(33, 33, 33);
+}
+
+small {
+  width: 9rem;
+}
+
+.input-with-tag {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.small-label {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
 }
 
 button {
@@ -55,4 +71,9 @@ button:active {
 .reset__button {
   text-align: center;
   font-size: 1.5rem;
+}
+
+.eta-result {
+  text-align: center;
+  font-size: 1.7rem;
 }

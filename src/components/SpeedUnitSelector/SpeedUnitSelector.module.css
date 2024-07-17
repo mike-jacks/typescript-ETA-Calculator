@@ -1,0 +1,6 @@
+.buttons {
+  font-size: 1.7rem;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
