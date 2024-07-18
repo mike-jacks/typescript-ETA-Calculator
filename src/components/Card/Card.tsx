@@ -83,6 +83,7 @@ export default function Card() {
   const handleResetClick = () => {
     setSpeedInput("");
     setDistanceInput("");
+    setResults("Enter Speed and Distance above");
   };
 
   return (
