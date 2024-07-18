@@ -1,6 +1,15 @@
 import { Dispatch, SetStateAction } from "react";
 import { SpeedUnit } from "../components/enums";
 
+/**
+ *
+ * @param prev current speed unit value
+ * @param unit new speed unit value
+ * @param speedInput current speedInput value
+ * @param distanceInput current distanceInput value
+ * @param setSpeedInput function to set speedInput useState value
+ * @param setDistanceInput function to set distanceInput value
+ */
 export function switchSpeedUnit(
   prev: SpeedUnit,
   unit: SpeedUnit,

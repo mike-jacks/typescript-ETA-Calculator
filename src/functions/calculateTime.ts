@@ -1,3 +1,9 @@
+/**
+ *
+ * @param time calculated time ETA in either hours or seconds
+ * @param isHours boolean to check if 'time' value is in hours or seconds
+ * @returns string formatted for hours, minutes, seconds
+ */
 export function calculateTime(time: number, isHours: boolean): string {
   let hours: number;
   let minutes: number;

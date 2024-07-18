@@ -7,7 +7,7 @@
   padding: 2em;
   background-color: rgb(30, 31, 33);
   border-radius: 1em;
-  gap: 3rem;
+  gap: 1.5rem;
   width: 30rem;
   border: 0.1rem solid rgba(255, 255, 255, 0.3);
   box-shadow: 0.7rem 0.7rem 3rem rgba(0, 0, 0, 0.5);
@@ -78,4 +78,16 @@ button:active {
 .eta-result {
   text-align: center;
   font-size: 1.7rem;
+}
+
+.error-message {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 2.3rem;
+}
+.error {
+  color: red;
+  font-size: 1.3rem;
+  width: 100%;
 }
