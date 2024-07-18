@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { calculateTime } from "../../functions/calculateTime";
 import { SpeedUnit } from "../enums";
 import SpeedUnitSelector from "../SpeedUnitSelector/SpeedUnitSelector";
 import styles from "./Card.module.css";
@@ -10,38 +11,32 @@ export default function Card() {
   const [selectedSpeedUnit, setSelectedSpeedUnit] = useState<SpeedUnit>(SpeedUnit.MilesPerHour);
   const [distanceLabel, setDistanceLabel] = useState<string>("Miles");
   const [speedLabel, setSpeedLabel] = useState<string>("mph");
-  const [timeLabel, setTimeLabel] = useState<string>("");
+  const [isHours, setIsHours] = useState<boolean>(true);
 
   useEffect(() => {
     switch (selectedSpeedUnit) {
       case SpeedUnit.MilesPerHour:
-        console.log("miles per hour selected");
         setSpeedLabel(SpeedUnit.MilesPerHour);
         setDistanceLabel("Miles");
-        setTimeLabel("hours");
+        setIsHours(true);
         break;
       case SpeedUnit.KilometersPerHour:
-        console.log("kilometers per hour selected");
         setSpeedLabel(SpeedUnit.KilometersPerHour);
         setDistanceLabel("Kilometers");
-        setTimeLabel("hours");
+        setIsHours(true);
         break;
       case SpeedUnit.FeetPerSecond:
-        console.log("feet per second selected");
         setSpeedLabel(SpeedUnit.FeetPerSecond);
         setDistanceLabel("Feet");
-        setTimeLabel("seconds");
+        setIsHours(false);
         break;
       case SpeedUnit.MetersPerSecond:
-        console.log("meters per second selected");
         setSpeedLabel(SpeedUnit.MetersPerSecond);
         setDistanceLabel("Meters");
-        setTimeLabel("seconds");
+        setIsHours(false);
         break;
     }
   }, [selectedSpeedUnit]);
-
-  useEffect(() => {}, [results]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,7 +44,7 @@ export default function Card() {
     const speed = Number(formData.get("speed"));
     const distance = Number(formData.get("distance"));
     const time = distance / speed;
-    setResults(String(time));
+    setResults(calculateTime(time, isHours));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +69,13 @@ export default function Card() {
     <>
       <form className={styles.card} onSubmit={handleSubmit}>
         <h1 className={`${styles.heading}`}>ETA Calculator</h1>
-        <SpeedUnitSelector setSelectedSpeedUnit={setSelectedSpeedUnit} setSpeedInput={setSpeedInput} setDistanceInput={setDistanceInput} />
+        <SpeedUnitSelector
+          speedInput={speedInput}
+          distanceInput={distanceInput}
+          setSelectedSpeedUnit={setSelectedSpeedUnit}
+          setSpeedInput={setSpeedInput}
+          setDistanceInput={setDistanceInput}
+        />
         <div className={`${styles.field} ${styles.field__speed}`}>
           <label htmlFor="speed__input" className={`${styles.label}, ${styles.label__speed}`}>
             <small>Speed:</small>
@@ -82,7 +83,7 @@ export default function Card() {
           <div className={`${styles["input-with-tag"]}`}>
             <input
               type="number"
-              step="0.01"
+              step="0.0001"
               min="0"
               className={`${styles.input}, ${styles.input__speed}`}
               id="speed__input"
@@ -101,8 +102,8 @@ export default function Card() {
           <div className={`${styles["input-with-tag"]}`}>
             <input
               type="number"
-              step="0.01"
               min="0"
+              step="0.0001"
               className={`${styles.input}, ${styles.input__distance}`}
               id="distance__input"
               placeholder="Current distance"
