@@ -3,6 +3,9 @@ import { switchSpeedUnit } from "../../functions/switchSpeedUnit";
 import { SpeedUnit } from "../enums";
 import styles from "./SpeedUnitSelector.module.css";
 
+/**
+ * Properties for SpeedUnitSelector
+ */
 type SpeedUnitSelectorProps = {
   speedInput: string;
   distanceInput: string;
@@ -11,15 +14,26 @@ type SpeedUnitSelectorProps = {
   setDistanceInput: Dispatch<SetStateAction<string>>;
 };
 
+/**
+ * Generates selector buttons component for speed unit setting.
+ *
+ * @param SpeedUnitSelectorProps - properties to pass on speedInput, distanceInput, and set methods for useState variables
+ * @returns SpeedUnitSelector JSX.Element
+ */
 export default function SpeedUnitSelector({
   speedInput,
   distanceInput,
   setSelectedSpeedUnit,
   setSpeedInput,
   setDistanceInput,
-}: SpeedUnitSelectorProps) {
+}: SpeedUnitSelectorProps): JSX.Element {
   const [selectedButton, setSelectedButton] = useState<SpeedUnit>(SpeedUnit.MilesPerHour);
 
+  /**
+   * Set's the selected button when button is clicked.
+   *
+   * @param unit - SpeedUnit Enum
+   */
   const handleClick = (unit: SpeedUnit) => {
     setSelectedSpeedUnit((prev) => {
       setSelectedButton(unit);

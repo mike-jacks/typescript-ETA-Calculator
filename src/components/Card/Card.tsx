@@ -4,6 +4,11 @@ import { SpeedUnit } from "../enums";
 import SpeedUnitSelector from "../SpeedUnitSelector/SpeedUnitSelector";
 import styles from "./Card.module.css";
 
+/**
+ * Generates a form card component that includes button selectors for speed rate and speed/distance input fields.
+ *
+ * @returns Card component
+ */
 export default function Card() {
   const [speedInput, setSpeedInput] = useState<string>("");
   const [distanceInput, setDistanceInput] = useState<string>("");

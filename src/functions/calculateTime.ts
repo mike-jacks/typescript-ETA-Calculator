@@ -1,4 +1,5 @@
 /**
+ * Converts time in hours/seconds to a string in hours, minutes, seconds.
  *
  * @param time calculated time ETA in either hours or seconds
  * @param isHours boolean to check if 'time' value is in hours or seconds

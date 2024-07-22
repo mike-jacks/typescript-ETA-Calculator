@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { SpeedUnit } from "../components/enums";
 
 /**
+ * Sets speedInput and distanceInput based on calculation converting from previous active button to currently active button.
  *
  * @param prev current speed unit value
  * @param unit new speed unit value
