@@ -2,7 +2,7 @@
 
 Typescript ETA Calculator using React and typescript assignment.
 
-In this assignment I practiced using Typescript, React, and CSS modules. I added additional funtionality to convert speed and distance between different units. I also added error checking if fields are valid and added conditional HTML/CSS renderings if fields are valid or not.
+In this assignment, I practiced using Typescript, React, and CSS modules. I added additional functionality to convert speed and distance between different units. I also added error checking if fields are valid and added conditional HTML/CSS renderings if fields are valid or not.
 
 ## Setup to run locally
 
